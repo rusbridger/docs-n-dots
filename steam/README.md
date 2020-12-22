@@ -2,7 +2,7 @@
 
 ## Fonts
 
-Install `steam-fonts` to fix the scrambed fonts on menus.
+Install [`steam-fonts`](https://archlinux.org/packages/multilib/x86_64/steam/) to fix the scrambed fonts on menus.
 
 ## Counter-Strike: Global Offensive
 
@@ -14,9 +14,4 @@ Use the following launch settings.
 
 ## Left 4 Dead 2
 
-Some of the ports of Left 4 Dead maps are too dark and the `video.txt` file needs to be adjusted. Add this setting to `~/.steam/steam/steamapps/common/Left\ 4\ Dead\ 2/left4dead2/cfg/video.txt`.
-
-```json
-"setting.mat_tonemapping_occlusion_use_stencil" "1"
-```
-
+Some of the ports of Left 4 Dead maps are too dark and the `video.txt` file needs to be adjusted. *After installing L4D2*, run the script `l4d2_video.sh`.
