@@ -3,6 +3,7 @@
 id=20
 partition=24
 delta=$((100 / partition))
+min=.7
 
 function get_light() {
   echo $(light -G) | awk '{print ($val-int($val)>0)?int($val)+1:int($val)}'
@@ -23,7 +24,7 @@ function notify() {
 case $1 in
 down)
   if [ $(get_light) -lt $(($delta + 1)) ]; then
-    light -N
+    light -S .7
   else light -U $delta; fi
   notify "brightness_low" "$(make_bar)"
   ;;

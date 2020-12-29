@@ -1,6 +1,6 @@
 # Brightness
 
-The script `brightness.sh` controls the screen backlight brightness.
+The script `brightness.sh` controls the screen backlight brightness. Optionally uses `dunst` and icons from the Google Material Icons set.
 
 ```sh
 brightness.sh [down | up]
