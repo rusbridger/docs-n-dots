@@ -1,0 +1,13 @@
+[alias]
+  br = branch
+  ci = commit
+  co = checkout
+  mg = merge
+  rb = rebase
+  rs = reset --hard
+  st = status
+[user]
+  name = Rupert Wu
+  email = wu.rupert@outlook.com
+[pull]
+  rebase = false
