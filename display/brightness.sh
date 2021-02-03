@@ -5,17 +5,17 @@ partition=24
 delta=$((100 / partition))
 min=.7
 
-function get_light() {
+get_light() {
   echo $(light -G) | awk '{print ($val-int($val)>0)?int($val)+1:int($val)}'
 }
 
-function make_bar() {
+make_bar() {
   index=$(($(get_light) / delta))
-  if [ $index == 0 ]; then index=1; fi
+  if test $index = 0 ; then index=1; fi
   echo $(expr substr "▁▁▁▂▂▂▃▃▃▄▄▄▅▅▅▆▆▆▇▇▇███" 1 $index)
 }
 
-function notify() {
+notify() {
   if ps ax | grep -v grep | grep "dunst" > /dev/null; then
     dunstify -u low -i $1 -r $id $2
   fi
@@ -23,13 +23,13 @@ function notify() {
 
 case $1 in
 down)
-  if [ $(get_light) -lt $(($delta + 1)) ]; then
-    light -S .7
-  else light -U $delta; fi
+  if test $(get_light) -lt $(($delta + 1)) ; then
+    sudo light -S .7
+  else sudo light -U $delta; fi
   notify "brightness_low" "$(make_bar)"
   ;;
 up)
-  light -A $delta
+  sudo light -A $delta
   notify "brightness_high" "$(make_bar)"
   ;;
 esac
